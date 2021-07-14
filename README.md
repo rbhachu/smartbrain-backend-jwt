@@ -11,10 +11,8 @@
 __*Updated Version of this Repo: https://github.com/rbhachu/smartbrain-master-docker*__
 <br><br>
 
-
-<h1 align="center">SmartBrain Master (Back-End Server)</h1>
+<h1 align="center">SmartBrain v2 Server</h1>
 <br>
-
 
 ## Description
 <p>Back-End Server for SmartBrain Front-End Client, running Node, Express, Redis and PostgreSQL servers.<br><br>
