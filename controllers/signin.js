@@ -24,7 +24,7 @@ const handleSignin = (db, bcrypt, req, res) => {
 // TOKENS/SESSIONS
 const jwt = require('jsonwebtoken'); // jwt
 const redis = require('redis'); // redis
-const redisClient = redis.createClient(process.env.REDIS_URL); // connect to redis db server
+const redisClient = redis.createClient(process.env.REDISCLOUD_URL); // connect to redis db server
 
 const setToken = (key, value) => Promise.resolve(redisClient.set(key, value));
 //console.log(setToken);
