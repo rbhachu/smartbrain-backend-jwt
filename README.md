@@ -156,7 +156,7 @@ npm update
 ## Configuration
 <p>There is a settings file in the root of the project folder called '.env' which is also known as the Environmental Variables file.
 <br><br>
-We now need to update this file to use actual values <i>(remove brackets when you replace with actual values)</i> for API_CLARIFAI, POSTGRES_URL and REDIS_URL.
+We now need to update this file to use actual values <i>(remove brackets when you replace with actual values)</i> for API_CLARIFAI, DATABASE_URL and REDIS_URL.
 <br>
 
 ```env
@@ -170,7 +170,7 @@ JWT_SECRET=secret
 API_CLARIFAI=(your api key)
 
 #POSTGRESQL DB
-POSTGRES_URL=postgres://(<db_username>:<db_password><host_location:host_port>/<db_name>)
+DATABASE_URL=postgres://(<db_username>:<db_password><host_location:host_port>/<db_name>)
 
 #REDIS DB
 REDIS_URL=redis://:(<db_password><host_location>:<host_port>)
