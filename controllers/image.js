@@ -1,23 +1,11 @@
-const Clarifai = require('clarifai');
+import { App as ClarifaiApp } from 'clarifai';
 
 // Initialize with the API key directly
-const app = new Clarifai.App({
+const app = new ClarifaiApp({
   apiKey: process.env.API_CLARIFAI
 });
 
-const handleApiCall = (req, res) => {
-  app.models
-    .predict({id: Clarifai.FACE_DETECT_MODEL}, req.body.input)
-    .then(data => {
-      res.json(data);
-    })
-    .catch(err => {
-      console.error("API Error: ", err); // Log the actual error for debugging
-      res.status(400).json('unable to work with API');
-    });
-};
-
-const handleImage = (req, res, db) => {
+export const handleImage = (req, res, db) => {
   const { id } = req.body;
   db('users')
     .where('id', '=', id)
@@ -26,10 +14,20 @@ const handleImage = (req, res, db) => {
     .then(entries => {
       res.json(entries[0]);
     })
-    .catch(err => res.status(400).json('unable to get entries'));
+    .catch(err => {
+      console.log('Handle Image Error: ', err);
+      res.status(400).json('Handle Image Error');
+    });
 };
 
-module.exports = {
-  handleImage,
-  handleApiCall
+export const handleApiCall = (req, res) => {
+  app.models
+    .predict({ id: Clarifai.FACE_DETECT_MODEL }, req.body.input)
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      console.log('Handle API Error: ', err);
+      res.status(400).json('Handle API Error');
+    });
 };
